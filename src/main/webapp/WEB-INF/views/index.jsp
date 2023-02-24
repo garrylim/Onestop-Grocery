@@ -5,11 +5,7 @@
 </head>
 <body>
     <h1>Payment Process</h1>
-    <a href="/process-payment">Payment</a> <br>
-
-    <a href="/createStore">Create store</a> </br>
-
-    <a href="/createUser">Create user</a>
+    <a href="/process-payment">Payment</a>
 
 </body>
 </html>
