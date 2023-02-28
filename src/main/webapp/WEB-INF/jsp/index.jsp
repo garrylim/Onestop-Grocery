@@ -9,7 +9,9 @@
 
     <a href="/createStore">Create store</a> </br>
 
-    <a href="/createUser">Create user</a>
+    <a href="/createUser">Create user</a> </br>
+
+    <a href="/storeList">store List</a>
 
 </body>
 </html>

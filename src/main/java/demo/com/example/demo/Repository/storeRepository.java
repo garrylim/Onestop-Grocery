@@ -1,27 +1,22 @@
 package demo.com.example.demo.Repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-
 import demo.com.example.demo.Entity.storeEntity;
 
 @Repository
-public class storeRepository {
+public interface storeRepository extends JpaRepository<storeEntity, Long> {
 
-    private List<storeEntity> storeList = new ArrayList<>();
+    @Query("SELECT s FROM Store s WHERE LOWER(s.name) LIKE LOWER(CONCAT('%', :keyword, '%'))"
+    + " OR LOWER(s.phoneNumber) LIKE LOWER(CONCAT('%', :keyword, '%'))"
+    + " OR LOWER(s.localities) LIKE LOWER(CONCAT('%', :keyword, '%'))")
+    List<storeEntity> searchStores(@Param("keyword") String keyword);
 
-    public void addStore(storeEntity store) {
-        storeList.add(store);
-    }
-
-    public storeEntity findStoreByName(String name) {
-        for (storeEntity store : storeList) {
-            if (store.getName().equals(name)) {
-                return store;
-            }
-        }
-        return null;
-    }
 }
+
+
+
